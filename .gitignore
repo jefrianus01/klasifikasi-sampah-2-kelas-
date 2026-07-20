@@ -16,7 +16,6 @@ trashnet_raw/
 models/
 results/
 logs/
-__pycache__/
 *.log
 
 .DS_Store

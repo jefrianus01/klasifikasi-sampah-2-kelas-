@@ -121,8 +121,8 @@ python train.py --mixed-precision
 # Evaluasi model terbaru di models/
 python evaluate.py
 
-# Evaluasi model tertentu
-python evaluate.py --model-path models/best_model_MobileNetV2_20250101_120000.h5
+# Evaluasi model tertentu (cantumkan backbone untuk preprocessing yang benar)
+python evaluate.py --model-path models/best_model_EfficientNetB0_20260720_175329.h5 --backbone EfficientNetB0
 
 # Dengan dataset test kustom
 python evaluate.py --test-dir dataset/test --batch-size 64
@@ -140,8 +140,8 @@ python predict.py --dir path/to/images/
 # Dengan threshold berbeda
 python predict.py --image image.jpg --threshold 0.7
 
-# Model tertentu
-python predict.py --image image.jpg --model models/best_model.h5
+# Model tertentu (cantumkan backbone untuk preprocessing yang benar)
+python predict.py --image image.jpg --model models/best_model_EfficientNetB0.h5 --backbone EfficientNetB0
 ```
 
 ### Prediksi (ONNX)
@@ -155,6 +155,9 @@ python predict_onnx.py --image image.jpg --benchmark
 
 # GPU inference (jika onnxruntime-gpu terinstall)
 python predict_onnx.py --image image.jpg --provider CUDAExecutionProvider
+
+# Cantumkan backbone untuk preprocessing yang benar
+python predict_onnx.py --image image.jpg --model model.onnx --backbone EfficientNetB0
 ```
 
 ### Konversi ONNX
